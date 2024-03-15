@@ -1,6 +1,8 @@
 
 import './App.css'
 import Banner from './Components/Banner/Banner'
+import Foodcards from './Components/Foodcards/Foodcards'
+import Foodcart from './Components/Foodcart/Foodcart'
 import Navbar from './Components/Navbar/Navbar'
 
 
@@ -19,6 +21,14 @@ function App() {
           the joy is in cooking for others. It’s the same
           with music.
         </p>
+    </div>
+    <div className='container mx-auto md:flex'>
+      <div className='w-2/3'>
+      <Foodcards></Foodcards>
+      </div>
+      <div className='w-1/3'>
+      <Foodcart></Foodcart>
+      </div>
     </div>
     </>
   )

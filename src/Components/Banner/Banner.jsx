@@ -2,10 +2,10 @@ const Banner = () => {
   return (
     <div className="container mx-auto">
       {/* bg-[url('../../assets/images/banner.jpeg')] */}
-      <div className="bg-blue-200 h-[600px] rounded-xl space-y-4 text-white flex flex-col justify-center text-center items-center">
-        <h3 className="text-5xl font-bold  ">
+      <div className="bg-blue-200 h-[600px] rounded-xl space-y-4 text-white flex flex-col justify-center text-center items-center mx-3 p-2 md:mx-0">
+        <h3 className="text-3xl md:text-5xl font-bold ">
           Discover an exceptional cooking
-          <br />
+          <br className="hidden md:flex" />
           class tailored for you!
         </h3>
         <p>
