@@ -34,9 +34,9 @@ const Foodcart = ({ cartWantToCook, setCartWantToCook }) => {
           <tr className="h-20">
             <th className="w-1/6 text-transparent">Num</th>
             <th className="w-2/6 text-left">Name</th>
-            <th className="w-2/6 text-left">Time</th>
+            <th className="w-1/6 md:w-2/6 text-left">Time</th>
             <th className="w-2/6 text-left">Calories</th>
-            <th className="w-2/6 text-transparent">Num</th>
+            <th className="w-3/6 md:w-2/6 text-transparent">Num</th>
           </tr>
         </thead>
         <tbody>
