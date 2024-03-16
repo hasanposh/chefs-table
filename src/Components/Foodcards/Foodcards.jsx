@@ -5,7 +5,7 @@ import Foodcard from "../Foodcard/Foodcard";
 const Foodcards = ({handleAddToCart}) => {
   const [foodInfos, setFoodInfos] = useState([]);
   useEffect(() => {
-    fetch("./../../../public/foodData.json")
+    fetch("./foodData.json")
       .then((res) => res.json())
       .then((data) => setFoodInfos(data));
   }, []);

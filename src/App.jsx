@@ -9,6 +9,7 @@ function App() {
   const [cartWantToCook, setCartWantToCook] = useState([]);
   const [cartDataCount, setCartDataCount] = useState(0);
   const handleAddToCart = (foodInfo) => {
+    // console.log(foodInfo);
     const newCartWantToCook = [...cartWantToCook, foodInfo];
     setCartWantToCook(newCartWantToCook);
     setCartDataCount(cartDataCount + 1);

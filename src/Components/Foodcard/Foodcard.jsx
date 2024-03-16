@@ -3,7 +3,7 @@ import { MdOutlineWatchLater } from "react-icons/md";
 import { AiOutlineFire } from "react-icons/ai";
 
 const Foodcard = ({ foodInfo, handleAddToCart }) => {
-    console.log(foodInfo);
+    // console.log(foodInfo);
   const {
     recipe_name,
     recipe_image,
@@ -37,11 +37,11 @@ const Foodcard = ({ foodInfo, handleAddToCart }) => {
           <div className="flex justify-between">
             <div className="flex items-center gap-2">
               <MdOutlineWatchLater></MdOutlineWatchLater>
-              <p>{preparing_time}</p>
+              <p>{preparing_time} minutes</p>
             </div>
             <div className="flex items-center gap-2">
               <AiOutlineFire></AiOutlineFire>
-              <p>{calories}</p>
+              <p>{calories} calories</p>
             </div>
           </div>
           <div className="card-actions">
