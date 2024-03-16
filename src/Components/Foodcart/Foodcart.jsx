@@ -1,29 +1,32 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 
-const Foodcart = ({ cartWantToCook, cartDataCount }) => {
+const Foodcart = ({ cartWantToCook, setCartWantToCook }) => {
   //   console.log(cartWantToCook);
-  const [currentCookingCount,setCurrentCookingCount] = useState(0);
-  const [currentCooking,setCurrentCooking]=useState([])
-  const [totalTime,setTotalTime]=useState(0);
-  const [totalCalories,setTotalCalories]=useState(0);
-  const handleCurrentCooking = (id,time,calories) => {
-    const newId = cartWantToCook.find((foodId)=> id==foodId.recipe_id)
-    // const newTime = cartWantToCook.find((foodTime)=> time==foodTime.preparing_time)
-    console.log(time);
-    const newCurrentCooking = [...currentCooking , newId]
-    const newTotalTime = (totalTime+ parseInt(time))
-    const newTotalCalories = (totalCalories+ parseInt(calories))
-    setCurrentCooking(newCurrentCooking)
-    setCurrentCookingCount(currentCookingCount+1)
-    setTotalTime(newTotalTime)
-    setTotalCalories(newTotalCalories)
+//   const [currentCookingCount, setCurrentCookingCount] = useState(0);
+  const [currentCooking, setCurrentCooking] = useState([]);
+  const [totalTime, setTotalTime] = useState(0);
+  const [totalCalories, setTotalCalories] = useState(0);
+  const handleCurrentCooking = (id, time, calories) => {
+    const newId = cartWantToCook.find((foodId) => id == foodId.recipe_id);
+    const newCartWantToCook = cartWantToCook.filter(
+      (e) => newId.recipe_id !== e.recipe_id
+    );
+    console.log(newId, newCartWantToCook);
+    const newCurrentCooking = [...currentCooking, newId];
+    const newTotalTime = totalTime + parseInt(time);
+    const newTotalCalories = totalCalories + parseInt(calories);
+    setCurrentCooking(newCurrentCooking);
+    // setCurrentCookingCount(currentCookingCount + 1);
+    setTotalTime(newTotalTime);
+    setTotalCalories(newTotalCalories);
+    setCartWantToCook(newCartWantToCook);
     // console.log(currentCooking);
   };
   return (
     <div className="border-2 rounded-xl">
       <h3 className="text-center text-4xl mt-10 font-bold">
-        Want to cook: {cartDataCount}
+        Want to cook: {cartWantToCook.length}
       </h3>
       <hr className="w-3/4 mx-auto my-4" />
       <table className="table-fixed w-full">
@@ -45,7 +48,13 @@ const Foodcart = ({ cartWantToCook, cartDataCount }) => {
               <td>{element.calories}</td>
               <td>
                 <button
-                  onClick={() => handleCurrentCooking(element.recipe_id,element.preparing_time,element.calories)}
+                  onClick={() =>
+                    handleCurrentCooking(
+                      element.recipe_id,
+                      element.preparing_time,
+                      element.calories
+                    )
+                  }
                   className="btn rounded-full bg-green-400"
                 >
                   Preparing
@@ -55,9 +64,9 @@ const Foodcart = ({ cartWantToCook, cartDataCount }) => {
           ))}
         </tbody>
       </table>
-            
+
       <h3 className="text-center text-4xl mt-5 font-bold">
-        Currently cooking: {currentCookingCount}
+        Currently cooking: {currentCooking.length}
       </h3>
       <hr className="w-3/4 mx-auto my-4" />
       <table className="table-fixed w-full">
@@ -78,7 +87,7 @@ const Foodcart = ({ cartWantToCook, cartDataCount }) => {
               <td>{element.calories}</td>
             </tr>
           ))}
-          <tr className="bg-gray-100 h-20">
+          <tr className=" h-32">
             <td></td>
             <td></td>
             <td>Total Time = {totalTime} minutes</td>
@@ -92,7 +101,7 @@ const Foodcart = ({ cartWantToCook, cartDataCount }) => {
 
 Foodcart.propTypes = {
   cartWantToCook: PropTypes.object,
-  cartDataCount: PropTypes.number,
+  setCartWantToCook: PropTypes.func,
 };
 
 export default Foodcart;

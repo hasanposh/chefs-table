@@ -5,6 +5,7 @@ import { AiOutlineFire } from "react-icons/ai";
 const Foodcard = ({ foodInfo, handleAddToCart }) => {
     // console.log(foodInfo);
   const {
+    recipe_id,
     recipe_name,
     recipe_image,
     short_description,
@@ -47,7 +48,7 @@ const Foodcard = ({ foodInfo, handleAddToCart }) => {
           <div className="card-actions">
             <button
               className="btn rounded-full bg-green-400"
-              onClick={()=>handleAddToCart(foodInfo)}
+              onClick={()=>handleAddToCart(foodInfo,recipe_id)}
             >
               Want to Cook
             </button>

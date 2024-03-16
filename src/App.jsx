@@ -4,15 +4,24 @@ import Banner from "./Components/Banner/Banner";
 import Foodcards from "./Components/Foodcards/Foodcards";
 import Foodcart from "./Components/Foodcart/Foodcart";
 import Navbar from "./Components/Navbar/Navbar";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const [cartWantToCook, setCartWantToCook] = useState([]);
-  const [cartDataCount, setCartDataCount] = useState(0);
-  const handleAddToCart = (foodInfo) => {
+  // const [cartDataCount, setCartDataCount] = useState(0);
+  const handleAddToCart = (foodInfo , id) => {
     // console.log(foodInfo);
+    if(cartWantToCook.find((element)=>id==element.recipe_id)){
+      toast('You Already Add This Item')
+      return
+    }
+    
+    // if(id==foodInfo.recipe_id)
     const newCartWantToCook = [...cartWantToCook, foodInfo];
     setCartWantToCook(newCartWantToCook);
-    setCartDataCount(cartDataCount + 1);
+    
+    // setCartDataCount(cartDataCount + 1);
   };
 
   return (
@@ -34,13 +43,28 @@ function App() {
         </div>
         <div className="w-1/3">
           <Foodcart
+            setCartWantToCook={setCartWantToCook}
             cartWantToCook={cartWantToCook}
-            cartDataCount={cartDataCount}
+            // cartDataCount={cartDataCount}
           ></Foodcart>
         </div>
       </div>
+      <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
+
     </>
   );
 }
+
+
 
 export default App;
