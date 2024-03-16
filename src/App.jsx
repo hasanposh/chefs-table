@@ -38,10 +38,10 @@ function App() {
         </p>
       </div>
       <div className="container mx-auto gap-5 md:flex">
-        <div className="w-2/3">
+        <div className="w-full md:w-2/3">
           <Foodcards handleAddToCart={handleAddToCart}></Foodcards>
         </div>
-        <div className="w-1/3">
+        <div className="w-full my-4 md:my-0 md:w-1/3">
           <Foodcart
             setCartWantToCook={setCartWantToCook}
             cartWantToCook={cartWantToCook}
