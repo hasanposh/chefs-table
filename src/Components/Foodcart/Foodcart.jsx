@@ -42,7 +42,7 @@ const Foodcart = ({ cartWantToCook, setCartWantToCook }) => {
         <tbody>
           {cartWantToCook.map((element, indx) => (
             <tr key={indx} className="bg-gray-100 h-20">
-              <td className="pl-6">{element.recipe_id}</td>
+              <td className="pl-6">{indx+1}</td>
               <td>{element.recipe_name}</td>
               <td>{element.preparing_time}</td>
               <td>{element.calories}</td>
@@ -81,7 +81,7 @@ const Foodcart = ({ cartWantToCook, setCartWantToCook }) => {
         <tbody>
           {currentCooking.map((element, indx) => (
             <tr key={indx} className="bg-gray-100 h-20">
-              <td className="pl-6">{element.recipe_id}</td>
+              <td className="pl-6">{indx+1}</td>
               <td>{element.recipe_name}</td>
               <td>{element.preparing_time}</td>
               <td>{element.calories}</td>

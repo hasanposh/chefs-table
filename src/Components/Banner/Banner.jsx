@@ -3,7 +3,7 @@ const Banner = () => {
     <div className="container mx-auto">
       {/* bg-[url('../../assets/images/banner.jpeg')] */}
       {/* url('src/assets/images/banner.jpeg') */}
-      <div className="bg-[linear-gradient(45deg,rgba(0,0,0,0.4),rgba(0,0,0,0.1)),url('https://i.ibb.co/6r166YX/banner.jpg')] w-full bg-cover bg-center h-[600px] rounded-xl space-y-4 text-white flex flex-col justify-center text-center items-center p-2 md:mx-0">
+      <div className="bg-[linear-gradient(45deg,rgba(0,0,0,0.4),rgba(0,0,0,0.1)),url('https://i.ibb.co/6r166YX/banner.jpg')] w-full bg-cover bg-center h-[600px] rounded-xl space-y-4 text-white flex flex-col justify-center text-center items-center ">
         <h3 className="text-3xl md:text-5xl font-bold ">
           Discover an exceptional cooking
           <br className="hidden md:flex" />
